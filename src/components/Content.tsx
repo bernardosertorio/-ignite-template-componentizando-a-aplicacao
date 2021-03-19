@@ -1,13 +1,8 @@
 import { useState } from 'react';
 import { MovieCard } from '../components/MovieCard';
+import { Header } from '../components/Header';
 
 import '../styles/content.scss';
-
-interface GenreResponseProps {
-  id: number;
-  name: 'action' | 'comedy' | 'documentary' | 'drama' | 'horror' | 'family';
-  title: string;
-}
 
 interface MovieProps {
   imdbID: string;
