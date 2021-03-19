@@ -3,6 +3,12 @@ import { MovieCard } from '../components/MovieCard';
 
 import '../styles/content.scss';
 
+interface GenreResponseProps {
+  id: number;
+  name: 'action' | 'comedy' | 'documentary' | 'drama' | 'horror' | 'family';
+  title: string;
+}
+
 interface MovieProps {
   imdbID: string;
   Title: string;
@@ -16,6 +22,7 @@ interface MovieProps {
 
 export function Content() {
   const [movies, setMovies] = useState<MovieProps[]>([]);
+  const [selectedGenre, setSelectedGenre] = useState<GenreResponseProps>({} as GenreResponseProps);
 
   return (
     <div style={{ display: 'flex', flexDirection: 'row' }}>
