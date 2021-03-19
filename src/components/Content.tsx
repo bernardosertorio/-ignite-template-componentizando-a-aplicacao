@@ -22,15 +22,10 @@ interface MovieProps {
 
 export function Content() {
   const [movies, setMovies] = useState<MovieProps[]>([]);
-  const [selectedGenre, setSelectedGenre] = useState<GenreResponseProps>({} as GenreResponseProps);
 
   return (
     <div style={{ display: 'flex', flexDirection: 'row' }}>
       <div className="container">
-        <header>
-          <span className="category">Categoria:<span> {selectedGenre.title}</span></span>
-        </header>
-
         <main>
           <div className="movies-list">
             {movies.map(movie => (
