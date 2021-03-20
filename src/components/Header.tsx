@@ -1,9 +1,7 @@
 import '../styles/header.scss';
 
 interface GenreResponseProps {
-  genreName: {
-    id: number;
-    name: 'action' | 'comedy' | 'documentary' | 'drama' | 'horror' | 'family';
+  genreTitle: {
     title: string;
   }
 }
@@ -13,7 +11,7 @@ export function Header(props: GenreResponseProps) {
     <div style={{ display: 'flex', flexDirection: 'row' }}>
       <div className="headerContainer">
         <header>
-          <span className="category">Categoria:<span>{props.genreName.title}</span></span>
+          <span className="category">Categoria:<span>{props.genreTitle.title}</span></span>
         </header>
       </div>
     </div>

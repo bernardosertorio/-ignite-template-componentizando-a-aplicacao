@@ -1,8 +1,12 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { MovieCard } from '../components/MovieCard';
-import { Header } from '../components/Header';
+import { api } from '../services/api';
 
 import '../styles/content.scss';
+
+interface GenreId {
+  genreId:number;
+}
 
 interface MovieProps {
   imdbID: string;
@@ -15,8 +19,14 @@ interface MovieProps {
   Runtime: string;
 }
 
-export function Content() {
+export function Content(props: GenreId) {
   const [movies, setMovies] = useState<MovieProps[]>([]);
+
+  useEffect(() => {
+    api.get<MovieProps[]>(`genres/${props.genreId}/movies`).then(response => {
+      setMovies(response.data);
+    });
+  }, []);
 
   return (
     <div style={{ display: 'flex', flexDirection: 'row' }}>
