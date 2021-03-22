@@ -51,7 +51,7 @@ export function SideBar() {
       </nav>
 
       <Header genreTitle={selectedGenre}/>
-      <Content genreId={selectedGenreId}/>
+      <Content genreId={selectedGenre}/>
     </div>
   )
 }

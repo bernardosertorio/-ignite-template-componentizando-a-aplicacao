@@ -5,7 +5,9 @@ import { api } from '../services/api';
 import '../styles/content.scss';
 
 interface GenreId {
-  genreId:number;
+  genreId: {
+    id: number;
+  } 
 }
 
 interface MovieProps {
@@ -23,10 +25,10 @@ export function Content(props: GenreId) {
   const [movies, setMovies] = useState<MovieProps[]>([]);
 
   useEffect(() => {
-    api.get<MovieProps[]>(`genres/${props.genreId}/movies`).then(response => {
+    api.get<MovieProps[]>(`movies/?Genre_id=${props.genreId.id}`).then(response => {
       setMovies(response.data);
     });
-  }, []);
+  }, [movies]);
 
   return (
     <div style={{ display: 'flex', flexDirection: 'row' }}>
